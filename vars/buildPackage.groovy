@@ -1,11 +1,16 @@
 def call(Map config) {
-    container('jenkins-slave') {
-        git credentialsId: "$config.credentialsId", branch: "$config.branch", url: "$config.url"
+    stage('Git checkout') {
+        container('jenkins-slave') {
+            log('Git checkout')
+            git credentialsId: "$config.credentialsId", branch: "$config.branch", url: "$config.url"
+        }
     }
-
-    container('jenkins-slave') {
-        sh '''
-                mvn clean install
+    stage('mvn build') {
+        container('jenkins-slave') {
+            log('maven build')
+            sh '''
+            mvn clean install
         '''
+        }
     }
 }

@@ -1,4 +1,4 @@
-class Git {
+class Build {
 
     def log(String str) {
         println('********************************************************')

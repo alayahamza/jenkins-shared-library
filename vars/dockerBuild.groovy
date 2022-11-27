@@ -1,7 +1,7 @@
 def call(Map config) {
     
     stage('docker-build') {
-        container('jenkins-slave') {
+        container('docker') {
             log('Docker build')
             sh"""
                 pwd

@@ -3,7 +3,7 @@ def call(Map config) {
         stage('SonarQube analysis') {
             withSonarQubeEnv('docker-env-sonar') {
                 sh '''
-                    mvn sonar:sonar
+                    mvn -Dmaven.repo.local=/.m2/repository sonar:sonar
                 '''
             }
         }

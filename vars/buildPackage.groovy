@@ -11,7 +11,7 @@ def call(Map config) {
         container('mvn-jdk8') {
             log('maven build')
             sh '''
-            mvn clean install
+            mvn -Dmaven.repo.local=/.m2/repository clean install
         '''
         }
     }

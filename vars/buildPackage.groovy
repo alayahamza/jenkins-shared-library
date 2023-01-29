@@ -3,7 +3,7 @@ def call(Map config) {
     stage('Git checkout') {
         container('mvn-jdk8') {
             log('Git checkout')
-            git credentialsId: "$config.credentialsId", branch: "$config.branch", url: "$config.url"
+            checkout scm
         }
     }
     

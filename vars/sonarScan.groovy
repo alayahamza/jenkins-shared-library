@@ -1,5 +1,5 @@
 def call(Map config) {
-    container('mvn-jdk8') {
+    container('mvn-jdk11') {
         stage('SonarQube analysis') {
             withSonarQubeEnv('docker-env-sonar') {
                 sh '''
